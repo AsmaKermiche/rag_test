@@ -1,0 +1,75 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+      @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+      @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+      @prefix ont: <http://example.org/ontology#>.
+      @prefix ios: <http://example.org/ontology/ios17#>.
+      
+      # Classes
+      ont:SoftwareVersion rdf:type rdfs:Class.
+      ont:Feature rdf:type rdfs:Class.
+      ont:AutocorrectFeature rdf:type ont:Feature.
+      ont:CheckInFeature rdf:type ont:Feature.
+      ont:TimerFeature rdf:type ont:Feature.
+      ont:StandByModeFeature rdf:type ont:Feature.
+      ont:StickerFeature rdf:type ont:Feature.
+      ont:VideoEffectFeature rdf:type ont:Feature.
+      ont:VoicemailFeature rdf:type ont:Feature.
+      ont:GroupChatFeature rdf:type ont:Feature.
+      ont:ContactSharingFeature rdf:type ont:Feature.
+      ont:PrivateBrowsingFeature rdf:type ont:Feature.
+      ont:LargeFileSharingFeature rdf:type ont:Feature.
+      ont:JournalAppFeature rdf:type ont:Feature.
+      
+      # Properties
+      ont:hasFeature rdf:type rdf:Property.
+      ont:hasFeature rdfs:domain ont:SoftwareVersion.
+      ont:hasFeature rdfs:range ont:Feature.
+      
+      ont:hasName rdf:type rdf:Property.
+      ont:hasDescription rdf:type rdf:Property.
+      ont:hasFunctionality rdf:type rdf:Property.
+      ont:hasCompatibility rdf:type rdf:Property.
+      
+      # Individuals
+      ios:iOS17 rdf:type ont:SoftwareVersion;
+          ont:hasFeature ios:autocorrectFeature, ios:checkInFeature, ios:timerFeature,
+                        ios:standByModeFeature, ios:stickerFeature, ios:videoEffectFeature,
+                        ios:voicemailFeature, ios:groupChatFeature, ios:contactSharingFeature,
+                        ios:privateBrowsingFeature, ios:largeFileSharingFeature, ios:journalAppFeature;
+          ont:hasCompatibility "iPhone XR, XS, iPhone SE (1st gen)";
+          ont:hasDescription "iOS 17, the latest version of Apple’s iPhone operating system, with new features.";
+          ont:hasFunctionality "Autocorrect learning, Check In feature, Multiple timers, StandBy Mode, Stickers, Video Effects, Visual Voicemails, Group Chat improvements, Contact Sharing, Private Browsing, Large File Sharing, Journal App".
+      
+      ios:autocorrectFeature rdf:type ont:AutocorrectFeature;
+          ont:hasName "Autocorrect";
+          ont:hasDescription "Autocorrect learns explicit language usage";
+          ont:hasFunctionality "Tap on-screen undo button to revert corrections".
+      
+      ios:checkInFeature rdf:type ont:CheckInFeature;
+          ont:hasName "Check In";
+          ont:hasDescription "Alerts selected contacts when user arrives safely at a destination";
+          ont:hasFunctionality "Provides route, cell connectivity, and battery level".
+      
+      ios:timerFeature rdf:type ont:TimerFeature;
+          ont:hasName "Multiple Timers";
+          ont:hasDescription "Set and manage multiple timers simultaneously";
+          ont:hasFunctionality "Label each timer for better organization".
+      
+      ios:standByModeFeature rdf:type ont:StandByModeFeature;
+          ont:hasName "StandBy Mode";
+          ont:hasDescription "Transforms iPhone into a clock, calendar, digital photo frame, or information center";
+          ont:hasFunctionality "Activated when the phone is flipped horizontally while charging";
+          ont:hasCompatibility "Requires iPhone 14 Pro, 14 Pro Max, 15 Pro, or 15 Pro Max".
+      
+      ios:stickerFeature rdf:type ont:StickerFeature;
+          ont:hasName "Stickers";
+          ont:hasDescription "Quick access to all stickers, including third-party apps";
+          ont:hasFunctionality "Create custom stickers from photos with interactive effects".
+      
+      ios:videoEffectFeature rdf:type ont:VideoEffectFeature;
+          ont:hasName "Video Effects";
+          ont:hasDescription "Add effects like rain, confetti, and hearts in video calls";
+          ont:hasFunctionality "Trigger effects via menu or hand gestures";
+          ont:hasCompatibility "Requires iPhone 12 or newer".
+      
+      # Similar definitions for other features...   
