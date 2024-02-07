@@ -1,21 +1,14 @@
-name: "sonar_cloud_scan_github_actions"
-on:
-  push:
-      branches: [ "main" ]
+name: Codacy Analysis CLI
+
+on: ["push"]
+
 jobs:
-  DemoSonarCloudSCan:
+  codacy-analysis-cli:
+    name: Codacy Analysis CLI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-            fetch-depth: 0
-      - name: SonarCloudScan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-              -Dsonar.organization=rekhugopal
-              -Dsonar.projectKey=SonarCloudCodeAnalyisis
-              -Dsonar.python.coverage.reportPaths=coverage.xml
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
